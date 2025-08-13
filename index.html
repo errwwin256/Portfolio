@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Erwin | Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Particle Background -->
+    <canvas id="particles"></canvas>
+
+    <!-- HEADER -->
+    <header>
+      <nav>
+        <div class="logo">
+          <img src="photo/log.png" alt="" />
+        </div></div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- HOME SECTION -->
+    <section id="home" class="section home fade-in">
+      <div class="home-content">
+        <h1>Hi, I'm <span>Erwin</span></h1>
+        <h2 class="typewriter"></h2>
+        <p>I craft beautiful, responsive, and interactive websites.</p>
+        <a href="#projects" class="btn">View My Work</a>
+      </div>
+      <div class="home-img">
+        <img src="photo/ErwinG.jpg" alt="Your Photo" />
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section fade-in">
+      <h2>About Me</h2>
+      <p>
+        I'm a passionate front-end developer who loves turning creative designs
+        into interactive, user-friendly websites. I specialize in HTML, CSS,
+        JavaScript, and modern frameworks.
+      </p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section fade-in">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>Portfolio Website</h3>
+          <p>A clean and modern personal portfolio.</p>
+        </div>
+        <div class="project-card">
+          <h3>Landing Page</h3>
+          <p>Responsive and eye-catching landing page design.</p>
+        </div>
+        <div class="project-card">
+          <h3>Web App UI</h3>
+          <p>Interactive UI for a productivity web app.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section fade-in">
+      <h2>Contact Me</h2>
+      <form action="https://formspree.io/f/xeozvdgj" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="_replyto" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2025 Erwin Galura. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

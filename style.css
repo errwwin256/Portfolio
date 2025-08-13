@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #e6e6fa, #d8bfd8, #9370db);
+  color: #2f2f2f;
+  line-height: 1.6;
+}
+header {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem 2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  backdrop-filter: blur(8px);
+  z-index: 10;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #6a5acd;
+}
+.logo img {
+  width: 50px; /* Adjust size as needed */
+  height: auto;
+  border-radius: 50%;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #4b0082;
+  font-weight: 500;
+}
+.nav-links a:hover {
+  color: #8a2be2;
+}
+.section {
+  padding: 5rem 2rem;
+  text-align: center;
+}
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 8rem;
+}
+.home-content {
+  flex: 1;
+  min-width: 280px;
+}
+.home-content h1 {
+  font-size: 2.5rem;
+  color: #4b0082;
+}
+.home-content h1 span {
+  color: #8a2be2;
+}
+.home-content h2 {
+  font-weight: normal;
+  margin-bottom: 1rem;
+}
+.home-content p {
+  margin-bottom: 1.5rem;
+}
+.home-img {
+  flex: 1;
+  text-align: center;
+}
+.home-img img {
+  width: 250px; /* Change this value for desired size */
+  height: 250px; /* Keeps it square */
+  object-fit: cover; /* Crops if needed without distortion */
+  border-radius: 50%;
+  border: 4px solid #8a2be2;
+}
+.btn {
+  display: inline-block;
+  background: #8a2be2;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+  margin-bottom: 3rem;
+}
+.btn:hover {
+  background: #6a5acd;
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+.project-card {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1.5rem;
+  border-radius: 10px;
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.2);
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(138, 43, 226, 0.7), 0 0 40px rgba(186, 85, 211, 0.5);
+}
+form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+input,
+textarea {
+  padding: 0.8rem;
+  border-radius: 5px;
+  border: none;
+}
+button {
+  cursor: pointer;
+}
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+}
+.typewriter {
+  overflow: hidden;
+  border-right: 3px solid #8a2be2;
+  white-space: nowrap;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: transparent;
+}
