@@ -127,11 +127,3 @@ const appearOnScroll = new IntersectionObserver(function (entries, observer) {
 faders.forEach((fader) => {
   appearOnScroll.observe(fader);
 });
-const hamburger = document.querySelector(".hamburger");
-const nav = document.querySelector("nav");
-
-hamburger.addEventListener("click", () => {
-  nav.classList.toggle("show");
-  const expanded = hamburger.getAttribute("aria-expanded") === "true";
-  hamburger.setAttribute("aria-expanded", !expanded);
-});
