@@ -127,3 +127,15 @@ const appearOnScroll = new IntersectionObserver(function (entries, observer) {
 faders.forEach((fader) => {
   appearOnScroll.observe(fader);
 });
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
+const overlay = document.querySelector(".overlay");
+
+function toggleMenu() {
+  navLinks.classList.toggle("active");
+  hamburger.classList.toggle("toggle");
+  overlay.classList.toggle("active");
+}
+
+hamburger.addEventListener("click", toggleMenu);
+overlay.addEventListener("click", toggleMenu);
