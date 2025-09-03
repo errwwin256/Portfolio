@@ -163,13 +163,28 @@ footer {
 .hamburger {
   display: none;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 40px; /* larger tap area */
+  height: 40px;
   cursor: pointer;
-  gap: 5px;
-  z-index: 15;
+  z-index: 20;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.hamburger:hover {
+  background: rgba(138, 43, 226, 0.08); /* subtle hover */
+}
+
+.hamburger:focus {
+  outline: 2px solid #8a2be2;
+  outline-offset: 4px;
 }
 
 .hamburger div {
-  width: 25px;
+  width: 26px;
   height: 3px;
   background-color: #8a2be2;
   border-radius: 3px;
@@ -193,31 +208,56 @@ footer {
     position: fixed;
     top: 0;
     right: 0;
-    height: 100vh;
+    height: 43vh;
     width: 250px;
-    font-size: 16px; /* smaller font */
-    padding: 2px 2px; /* smaller padding */
-    background-color: #e6e0ff;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transform: translateX(100%);
-    transition: transform 0.4s ease;
-    box-shadow: -3px 0 15px rgba(0, 0, 0, 0.1);
-  }
+    font-size: 16px;
+    padding: 40px 20px;
 
+    /* 🔹 Transparent + appealing without blur */
+    background: linear-gradient(
+      135deg,
+      rgba(253, 253, 253, 0.6),
+      rgba(253, 253, 253, 0.6)
+    );
+    border-left: 1px solid rgba(138, 43, 226, 0.3); /* accent border */
+
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    transform: translateX(100%);
+    transition: transform 0.4s ease, background 0.3s ease;
+    box-shadow: -3px 0 20px rgba(0, 0, 0, 0.15);
+    z-index: 15;
+  }
   .nav-links.active {
     transform: translateX(0);
   }
 
   .nav-links li {
-    margin: 15px 0;
+    margin: 18px 0;
     opacity: 0;
-    transform: translateX(20px);
+    transform: translateX(30px);
     transition: all 0.4s ease;
   }
 
-  .nav-links.active li {
+  /* Stagger effect for links */
+  .nav-links.active li:nth-child(1) {
+    transition-delay: 0.1s;
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .nav-links.active li:nth-child(2) {
+    transition-delay: 0.2s;
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .nav-links.active li:nth-child(3) {
+    transition-delay: 0.3s;
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .nav-links.active li:nth-child(4) {
+    transition-delay: 0.4s;
     opacity: 1;
     transform: translateX(0);
   }
@@ -227,18 +267,18 @@ footer {
   }
 }
 
-/* Optional overlay for dim effect */
+/* Optional overlay */
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.35);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease;
-  z-index: 5;
+  z-index: 10;
 }
 
 .overlay.active {
