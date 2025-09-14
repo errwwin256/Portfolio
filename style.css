@@ -164,109 +164,100 @@ footer {
   display: none;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 6px;
-  width: 40px; /* larger tap area */
-  height: 40px;
+  width: 44px;
+  height: 44px;
   cursor: pointer;
-  z-index: 20;
-  border-radius: 8px;
-  transition: background 0.3s ease;
+  border: none;
+  background: transparent;
+  z-index: 999; /* ✅ always on top */
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }
 
-.hamburger:hover {
-  background: rgba(138, 43, 226, 0.08); /* subtle hover */
-}
-
-.hamburger:focus {
-  outline: 2px solid #8a2be2;
-  outline-offset: 4px;
-}
-
-.hamburger div {
-  width: 26px;
+.hamburger span {
+  width: 24px;
   height: 3px;
-  background-color: #8a2be2;
-  border-radius: 3px;
-  transition: all 0.4s ease;
+  background: #8a2be2; /* ✅ purple, visible on light backgrounds */
+  border-radius: 2px;
+  display: block;
+  transition: transform 0.3s ease, opacity 0.2s ease;
 }
 
-/* Transform hamburger to X */
-.hamburger.toggle div:nth-child(1) {
+/* Toggle → X */
+.hamburger.toggle span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
-.hamburger.toggle div:nth-child(2) {
+.hamburger.toggle span:nth-child(2) {
   opacity: 0;
 }
-.hamburger.toggle div:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
+.hamburger.toggle span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Mobile menu */
+/* Mobile Menu */
 @media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
   .nav-links {
     position: fixed;
     top: 0;
     right: 0;
-    height: 43vh;
-    width: 250px;
-    font-size: 16px;
-    padding: 40px 20px;
-
-    /* 🔹 Transparent + appealing without blur */
-    background: linear-gradient(
-      135deg,
-      rgba(253, 253, 253, 0.6),
-      rgba(253, 253, 253, 0.6)
-    );
-    border-left: 1px solid rgba(138, 43, 226, 0.3); /* accent border */
-
+    width: 70%;
+    max-width: 260px;
+    padding: 80px 20px 20px; /* ✅ added top padding so links start lower */
+    background: transparent;
+    display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    gap: 18px;
+    align-items: flex-end;
+    text-align: right;
     transform: translateX(100%);
-    transition: transform 0.4s ease, background 0.3s ease;
-    box-shadow: -3px 0 20px rgba(0, 0, 0, 0.15);
-    z-index: 15;
+    transition: transform 0.3s ease;
+    z-index: 998; /* below hamburger */
   }
+
   .nav-links.active {
     transform: translateX(0);
   }
 
   .nav-links li {
-    margin: 18px 0;
     opacity: 0;
-    transform: translateX(30px);
-    transition: all 0.4s ease;
+    transform: translateX(20px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
   }
-
-  /* Stagger effect for links */
-  .nav-links.active li:nth-child(1) {
-    transition-delay: 0.1s;
-    opacity: 1;
-    transform: translateX(0);
-  }
-  .nav-links.active li:nth-child(2) {
-    transition-delay: 0.2s;
-    opacity: 1;
-    transform: translateX(0);
-  }
-  .nav-links.active li:nth-child(3) {
-    transition-delay: 0.3s;
-    opacity: 1;
-    transform: translateX(0);
-  }
-  .nav-links.active li:nth-child(4) {
-    transition-delay: 0.4s;
+  .nav-links.active li {
     opacity: 1;
     transform: translateX(0);
   }
 
-  .hamburger {
-    display: flex;
+  /* Underline hover */
+  .nav-links a {
+    color: #8a2be2;
+    text-decoration: none;
+    position: relative;
+    font-weight: 500;
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    right: 0;
+    width: 0%;
+    height: 2px;
+    background: #8a2be2;
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover::after {
+    width: 100%;
+    left: 0;
+    right: auto;
   }
 }
-
 /* Optional overlay */
 .overlay {
   position: fixed;
